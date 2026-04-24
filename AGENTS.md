@@ -1,109 +1,132 @@
 # AGENTS.md
 
-## 1. Version And Documentation Fidelity Policy
+---
+version: "2.0"
+description: "Root agent policy. Keep this file language-neutral; place runtime-specific rules under config/<language>/."
+---
 
-### Where This Must Live
-- Canonical source of truth: this `AGENTS.md` file.
+# Agent Operating Guide
 
-### Non-Negotiable Rule
-- Any library, SDK, framework, API, or CLI usage must match the exact documented version used by the target project.
-- Agents must not mix examples from one version with implementation for another version.
+## Scope
 
-### Required Verification Before Implementation
-- Identify the target version from repository evidence first, in priority order:
-  - lockfiles (`uv.lock`, `poetry.lock`, `package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, `Cargo.lock`)
-  - manifest files (`pyproject.toml`, `requirements.txt`, `package.json`, `pom.xml`, `build.gradle`, `go.mod`)
-  - internal API specs (`openapi/`, versioned docs in repository)
-- If version evidence is missing or conflicting, stop and ask the user to confirm the exact version before proceeding.
-- In the final response, include a short "version check" note stating what source established the version.
+- This file defines repository-wide agent behavior.
+- Keep this file language-neutral.
+- Put language or framework rules under `config/<language>/instructions/` and `config/<language>/prompts/`.
+- When a task is language-specific, load the matching guidance before implementation.
 
-### Best Practices
-- Ensure that best practices applied to the version in question which may not be the latest.
+## Core Principles
 
-### PR And Commit Expectation
-- For major changes involving dependencies or APIs, PR/commit notes should include:
-  - selected library/API version
-  - evidence source file
-  - compatibility caveats or migration notes
+- Prefer established templates, libraries, and reference architectures over bespoke boilerplate.
+- Do not re-invent the wheel.
+- Keep changes differential and concise.
+- Favor deterministic, reproducible outputs.
+- Ask before proceeding when requirements, target directory, branch, or version are unclear.
+- Protect privacy. Never expose secrets or log PII; mask sensitive values in logs and error messages.
+- Any assumptions made must be clearly defined and validated each time it's considered.
 
-## 2. Git Workflow Policy
+## Standard Workflow
 
-Do not use master branch or any legacy terms. 
-The main branch is 'main'.
-This repository uses a controlled change workflow to keep main branch clean and auditable.
+1. Identify the applicable repository guidance and language/runtime guidance.
+2. Verify target versions from repository evidence before implementation.
+3. State the chosen template, library, or architecture path when it materially affects the solution.
+4. Make the smallest complete change that satisfies the request.
+5. Validate with real tests or checks. Do not simulate validation.
+
+## Version And Documentation Fidelity
+
+### Canonical Source
+
+- This file is the root policy for repository-wide behavior.
+
+### Required Verification
+
+- Identify target versions from repository evidence in this order:
+  - lockfiles: `uv.lock`, `poetry.lock`, `package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, `Cargo.lock`
+  - manifests: `pyproject.toml`, `requirements.txt`, `package.json`, `pom.xml`, `build.gradle`, `go.mod`
+  - internal specs: `openapi/`, versioned documentation in the repository
+- If version evidence is missing or conflicting, stop and ask for confirmation.
+- In final delivery, include a brief version-check note stating which file established the version.
+
+### Policy
+
+- Match implementation to the documented version used by the target project.
+- Do not mix examples or APIs from incompatible versions.
+- Apply best practices appropriate to the verified version, not whatever is newest.
+
+## Quality Expectations
+
+- Production quality is the default expectation, not a follow-up pass.
+- Do not re-implement standard library or framework capabilities unnecessarily.
+- Keep code modular, testable, and readable.
+- Prefer shorter guidance and clearer code when behavior is preserved.
+- If a language-specific quality checklist exists, treat it as mandatory for that language.
+
+## Interaction Rules
+
+- No filler.
+- Focus on architecture and decision quality rather than basic syntax explanations unless asked.
+- Restate understanding before multi-step work when the task has meaningful ambiguity or scope.
+- Do not assume unstated requirements.
+
+## Git Workflow Policy
+
+The main branch is `main`.
 
 ### Branching Rules
-- Never commit directly to main for major changes.
-- For each major change, create a feature branch from main.
-- Branch naming convention:
-  - feat/<milestone>-<short-description>
-  - fix/<milestone>-<short-description>
-  - chore/<milestone>-<short-description>
+
+- Never commit major changes directly to `main`.
+- Use feature branches for major changes:
+  - `feat/<milestone>-<short-description>`
+  - `fix/<milestone>-<short-description>`
+  - `chore/<milestone>-<short-description>`
 
 ### Major Change Definition
-A change is major if any one of the following is true:
-- Behavior or contract changes:
-  - Public API, schema, interface, or compatibility behavior changes.
-- Security or compliance impact:
-  - Authn/authz, secrets handling, policy files, audit/provenance, or access controls are changed.
-- Architecture or dependency impact:
-  - Core workflow refactor, framework/runtime migration, new critical dependency, or dependency major-version upgrade.
-- Operational impact:
-  - Build/deploy/release pipeline changes, environment/config model changes, or rollback complexity increases.
-- Scope threshold:
-  - More than 5 files changed, or any single file change exceeds 200 lines.
+
+A change is major if any of the following is true:
+
+- public behavior, schema, interface, or compatibility changes
+- security or compliance changes
+- architecture or dependency changes
+- build, deploy, release, or configuration model changes
+- more than 5 files changed, or any single file change exceeds 200 lines
 
 ### Minor Change Definition
-Minor changes can stay on main only when all are true:
-- No public behavior or compatibility change.
-- No security/compliance impact.
-- No build/deploy pipeline impact.
-- Small scope (5 or fewer files and low-risk edits such as docs, comments, typos, or non-functional formatting).
 
-### Tie-Breaker Rule
-If uncertain whether a change is major or minor, treat it as major and use a feature branch.
+Minor changes may stay on `main` only when all are true:
 
-### Merge Rules
-- Merge feature branches through pull requests.
-- Keep a clear PR title and description with scope, risk, and rollback notes.
-- Do not bypass review for major changes.
-- Keep main stable and releasable.
-- Do not perform direct major-change commits to main.
+- no public behavior or compatibility change
+- no security or compliance impact
+- no build or deploy impact
+- 5 or fewer low-risk files
 
-### Commit and Push Rules
-- Unless explicitly told to commit and push to remote, ask for approval before you push to the origin.
-- If explicitly asked to push to remote, then print the remote URL and execute the requested action.
+### Merge And Push Rules
 
-### Tagging and Milestones
-- After merge to main for a major change, create an annotated tag.
-- Use semantic versioning tags: vMAJOR.MINOR.PATCH.
-- Tag message must include:
-  - milestone name
-  - change summary
-  - date (UTC)
+- Merge major changes through pull requests.
+- Keep PR descriptions clear about scope, risk, and rollback.
+- Ask before pushing to origin unless explicitly instructed to push.
 
 ### Release Traceability
-- Every major change should map to:
-  - branch name
-  - PR/merge commit
-  - semantic version tag
-  - milestone identifier
 
-### Default Agent Behavior
-When a user asks for a major repo change, agents should:
-1. Create/switch to a feature branch.
-2. Implement and commit changes on that branch.
-3. Merge to main only after review intent is confirmed.
-4. Create and push an annotated version tag after merge.
-5. Record why the change was classified as major in the PR/commit message.
+Every major change should map to:
+
+- branch name
+- PR or merge commit
+- semantic version tag
+- milestone identifier
 
 ### Minimum Execution Sequence
+
 1. `git checkout main && git pull --ff-only`
 2. `git checkout -b <feature-branch>`
-3. Implement and commit changes on feature branch.
-4. Merge to main through PR intent/approval.
+3. Implement and commit changes on the feature branch.
+4. Merge through PR intent or approval.
 5. `git tag -a vX.Y.Z -m "Milestone: <name>; Summary: <text>; Date: <UTC>"`
 6. `git push origin main --tags`
-7. Record major-change rationale in PR/commit notes.
+7. Record the major-change rationale in PR or commit notes.
 
+## Repository Layout Guidance
 
+- Root `AGENTS.md` should stay short and policy-oriented.
+- Put detailed language rules in `config/<language>/instructions/`.
+- Put compatibility or discovery prompts in `config/<language>/prompts/`.
+- Avoid duplicating the same rule across root policy, prompts, and instructions unless one file is explicitly a compatibility mirror.

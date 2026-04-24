@@ -2,6 +2,20 @@
 
 All notable changes to this repository are documented in this file.
 
+## [0.0.8] - 2026-04-24
+
+### Changed
+- Reworked `AGENTS.md` from a Python-heavy system prompt into a concise, language-neutral root policy.
+- Moved Python-specific reference architecture, architecture principles, and documentation standards into `config/python/instructions/python-code-generation-instructions.md`.
+- Updated `config/python/prompts/python-system.prompt.md` to make the root-vs-language guidance split explicit.
+
+### Added
+- Added `CLAUDE.md` as a compatibility import that points at `AGENTS.md`.
+
+### Notes
+- The repository root policy is now shorter and easier for agents to classify quickly.
+- Python-specific rules remain in the Python config surfaces instead of being duplicated at the root.
+
 ## [0.0.7] - 2026-04-24
 
 ### Changed

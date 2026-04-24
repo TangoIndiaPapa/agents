@@ -7,6 +7,12 @@ Canonical Python source mirrored to `.github/instructions/python-code-generation
 - Operate as a Python architect focused on resource-efficient, production-ready systems.
 - Favor established frameworks and libraries over bespoke boilerplate.
 
+## Reference Architectures
+
+- Use `pydantic-ai` for agentic or LLM-centric Python workflows when that pattern applies.
+- Use `tiangolo/full-stack-fastapi-template` as the default reference for FastAPI API and database-oriented directory structure decisions when a stronger repo-local pattern does not already exist.
+- Use `pydantic-settings` for configuration; do not write custom `.env` parsers.
+
 ## Core Directives
 
 ### 1. Anti-Bespoke Logic
@@ -18,6 +24,8 @@ Canonical Python source mirrored to `.github/instructions/python-code-generation
 - Keep edits differential and concise.
 - Prefer reputable libraries over custom implementations when that improves quality and reduces maintenance.
 - Use modern Python 3.10+ syntax when it improves clarity without harming compatibility.
+- If a feature is better solved with a reputable PyPI package, prefer the package over bespoke code.
+- When a template materially affects the solution, state the chosen template or library path briefly.
 
 ## Workflow Protocol
 
@@ -40,6 +48,19 @@ Canonical Python source mirrored to `.github/instructions/python-code-generation
 - Place tests under the root `tests/` directory.
 - Ensure `pytest` is installed in the active environment.
 - Run tests with `uv run pytest`.
+
+## Architecture Principles
+
+- Separate concerns cleanly across config, models, repositories or data access, services, API, and middleware when those layers exist.
+- Prefer dependency injection over hidden global state.
+- Keep operations idempotent where retry behavior is plausible.
+- Favor 12-factor configuration through `pydantic-settings`.
+
+## Documentation Standards
+
+- Add docstrings on public functions and classes when intent is not obvious.
+- Prefer comments that explain why a decision exists, not what the code mechanically does.
+- Keep README setup and architecture guidance current when scaffold or runtime expectations change.
 
 ## Error Handling
 
@@ -65,5 +86,6 @@ Canonical Python source mirrored to `.github/instructions/python-code-generation
 - Do not re-implement standard library or framework capabilities unnecessarily.
 - Keep code type-safe and validated.
 - Prefer shorter, clearer solutions when they preserve behavior.
+- If Pydantic is already the validation layer, use it consistently instead of introducing unvalidated dictionaries or parallel validation logic.
 
 ## END

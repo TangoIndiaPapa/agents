@@ -1,6 +1,6 @@
 # Agents Repository
 
-Current version: 0.0.7
+Current version: 0.0.8
 
 This repository separates agent guidance into two domains:
 - config: language/runtime-specific AGENTS.md blueprints and templates
@@ -29,11 +29,11 @@ If you need to refresh guidance later:
 	`./scripts/sync_guidance_symlinks.sh python <target-repo> [agents-root]`
 
 ## Release Notes
-- Latest release: `0.0.7` (AGENTS governance policy hardening)
+- Latest release: `0.0.8` (language-neutral root policy and Python guidance redistribution)
 - Highlights:
-	- Added version and documentation fidelity rules to AGENTS behavior.
-	- Added stricter major-change branching, merge, and release traceability requirements.
-	- Added a minimum execution sequence for major repository changes.
+	- Reworked `AGENTS.md` into a concise, language-neutral root policy.
+	- Moved Python-specific architecture guidance into `config/python` instruction and prompt files.
+	- Added `CLAUDE.md` as a compatibility import pointing at the root `AGENTS.md`.
 - Published release notes: [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - Latest changelog: [CHANGELOG.md](CHANGELOG.md)
 - Version file: [VERSION](VERSION)

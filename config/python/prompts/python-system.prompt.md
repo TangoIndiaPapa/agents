@@ -13,6 +13,16 @@ Use these files as source of truth:
 
 This prompt file remains for backward compatibility with existing `.github/prompts` discovery patterns.
 
+Python-specific guidance that should not live in the root `AGENTS.md` belongs in:
+1. `config/python/instructions/enterprise-python-checklist.md`
+2. `config/python/instructions/python-code-generation-instructions.md`
+
+Use those instruction files for:
+1. Python reference architectures and scaffolding defaults
+2. Python testing and validation rules
+3. FastAPI and Pydantic integration guardrails
+4. Python-specific documentation and architecture conventions
+
 Critical implementation guardrails:
 1. If `EmailStr` is used, include `email-validator` dependency.
 2. If `TrustedHostMiddleware` is used, include test host handling strategy.

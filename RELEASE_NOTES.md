@@ -1,5 +1,24 @@
 # Release Notes
 
+## 0.0.8 - 2026-04-24
+
+This release simplifies the root agent policy and moves Python-specific guidance to the Python configuration surfaces where it belongs.
+
+### Highlights
+- Reworked `AGENTS.md` into a concise, language-neutral root policy.
+- Moved Python-specific architecture and documentation guidance into `config/python/instructions/python-code-generation-instructions.md`.
+- Updated the Python compatibility prompt to explicitly direct Python-only guidance away from the root policy.
+- Added `CLAUDE.md` as a compatibility import that references `AGENTS.md`.
+
+### Validation
+- Reviewed the resulting diffs for `AGENTS.md`, the Python instruction file, the Python prompt file, and `CLAUDE.md`.
+- Verified that the `.github` runtime mirror files already matched the updated Python guidance.
+
+### Affected Areas
+- root repository agent policy in `AGENTS.md`
+- Python instruction and prompt guidance under `config/python/`
+- compatibility entry point in `CLAUDE.md`
+
 ## 0.0.7 - 2026-04-24
 
 This release hardens repository governance by making version fidelity and major-change workflow rules explicit in `AGENTS.md`.
