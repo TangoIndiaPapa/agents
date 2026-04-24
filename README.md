@@ -1,6 +1,6 @@
 # Agents Repository
 
-Current version: 0.0.6
+Current version: 0.0.7
 
 This repository separates agent guidance into two domains:
 - config: language/runtime-specific AGENTS.md blueprints and templates
@@ -29,11 +29,11 @@ If you need to refresh guidance later:
 	`./scripts/sync_guidance_symlinks.sh python <target-repo> [agents-root]`
 
 ## Release Notes
-- Latest release: `0.0.6` (enterprise FastAPI service scaffold)
+- Latest release: `0.0.7` (AGENTS governance policy hardening)
 - Highlights:
-	- Added `scripts/create_python_fastapi_service.sh` for production-grade Python service generation.
-	- New generated services include JWT auth, RBAC, rate limits, security headers, structured logging, tracing hooks, SQLite example domain, tests, and CI.
-	- Preserved `create_python_repo.sh` as the lightweight bootstrap path.
+	- Added version and documentation fidelity rules to AGENTS behavior.
+	- Added stricter major-change branching, merge, and release traceability requirements.
+	- Added a minimum execution sequence for major repository changes.
 - Published release notes: [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - Latest changelog: [CHANGELOG.md](CHANGELOG.md)
 - Version file: [VERSION](VERSION)
