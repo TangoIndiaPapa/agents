@@ -42,6 +42,10 @@ If uncertain whether a change is major or minor, treat it as major and use a fea
 - Keep a clear PR title and description with scope, risk, and rollback notes.
 - Do not bypass review for major changes.
 
+### Commit and Push Rules
+- Unless explicitly told to commit and push to remote, ask for approval before you push to the origin.
+- If explicitly asked to push to remote, then print the remote URL and execute the requested action.
+
 ### Tagging and Milestones
 - After merge to main for a major change, create an annotated tag.
 - Use semantic versioning tags: vMAJOR.MINOR.PATCH.
