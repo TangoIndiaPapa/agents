@@ -2,6 +2,19 @@
 
 All notable changes to this repository are documented in this file.
 
+## [0.0.7] - 2026-04-24
+
+### Changed
+- Updated `AGENTS.md` with a version and documentation fidelity policy.
+- Added explicit requirements for version-source verification before implementation.
+- Strengthened major-change governance with clearer main-branch protection, release traceability, and minimum execution steps.
+
+### Policy Additions
+- target-version verification from lockfiles, manifests, or internal API specs
+- PR and commit notes must include version evidence for major dependency or API changes
+- main branch stability and no direct major-change commits to main
+- minimum execution sequence for branch, merge, tag, and push operations
+
 ## [0.0.6] - 2026-04-24
 
 ### Added

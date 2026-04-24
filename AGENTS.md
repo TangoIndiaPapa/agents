@@ -1,6 +1,32 @@
 # AGENTS.md
 
-## Git Workflow Policy
+## 1. Version And Documentation Fidelity Policy
+
+### Where This Must Live
+- Canonical source of truth: this `AGENTS.md` file.
+
+### Non-Negotiable Rule
+- Any library, SDK, framework, API, or CLI usage must match the exact documented version used by the target project.
+- Agents must not mix examples from one version with implementation for another version.
+
+### Required Verification Before Implementation
+- Identify the target version from repository evidence first, in priority order:
+  - lockfiles (`uv.lock`, `poetry.lock`, `package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, `Cargo.lock`)
+  - manifest files (`pyproject.toml`, `requirements.txt`, `package.json`, `pom.xml`, `build.gradle`, `go.mod`)
+  - internal API specs (`openapi/`, versioned docs in repository)
+- If version evidence is missing or conflicting, stop and ask the user to confirm the exact version before proceeding.
+- In the final response, include a short "version check" note stating what source established the version.
+
+### Best Practices
+- Ensure that best practices applied to the version in question which may not be the latest.
+
+### PR And Commit Expectation
+- For major changes involving dependencies or APIs, PR/commit notes should include:
+  - selected library/API version
+  - evidence source file
+  - compatibility caveats or migration notes
+
+## 2. Git Workflow Policy
 
 Do not use master branch or any legacy terms. 
 The main branch is 'main'.
@@ -41,6 +67,8 @@ If uncertain whether a change is major or minor, treat it as major and use a fea
 - Merge feature branches through pull requests.
 - Keep a clear PR title and description with scope, risk, and rollback notes.
 - Do not bypass review for major changes.
+- Keep main stable and releasable.
+- Do not perform direct major-change commits to main.
 
 ### Commit and Push Rules
 - Unless explicitly told to commit and push to remote, ask for approval before you push to the origin.
@@ -68,3 +96,14 @@ When a user asks for a major repo change, agents should:
 3. Merge to main only after review intent is confirmed.
 4. Create and push an annotated version tag after merge.
 5. Record why the change was classified as major in the PR/commit message.
+
+### Minimum Execution Sequence
+1. `git checkout main && git pull --ff-only`
+2. `git checkout -b <feature-branch>`
+3. Implement and commit changes on feature branch.
+4. Merge to main through PR intent/approval.
+5. `git tag -a vX.Y.Z -m "Milestone: <name>; Summary: <text>; Date: <UTC>"`
+6. `git push origin main --tags`
+7. Record major-change rationale in PR/commit notes.
+
+
