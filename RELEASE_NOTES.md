@@ -1,5 +1,26 @@
 # Release Notes
 
+## 0.0.9 - 2026-04-25
+
+This release hardens Python repository generation quality by making documentation enforcement a required, machine-checked gate.
+
+### Highlights
+- Updated `AGENTS.md` with root policy requiring machine-enforced documentation checks for new Python repositories.
+- Updated canonical Python generation instructions to require:
+  - `interrogate` in dev dependencies
+  - `[tool.interrogate]` coverage threshold configuration
+  - CI docstring coverage step before tests
+- Updated enterprise checklist and compatibility prompt guidance to reinforce the same requirement.
+
+### Validation
+- Verified policy updates were applied in the canonical Python instruction path and checklist path.
+- Ensured release metadata synchronization across `VERSION`, `CHANGELOG.md`, and `RELEASE_NOTES.md`.
+
+### Affected Areas
+- root governance policy in `AGENTS.md`
+- Python generation guidance in `config/python/instructions/`
+- Python compatibility prompt in `config/python/prompts/`
+
 ## 0.0.8 - 2026-04-24
 
 This release simplifies the root agent policy and moves Python-specific guidance to the Python configuration surfaces where it belongs.

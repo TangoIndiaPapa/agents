@@ -2,6 +2,20 @@
 
 All notable changes to this repository are documented in this file.
 
+## [0.0.9] - 2026-04-25
+
+### Changed
+- Updated `AGENTS.md` to require machine-enforced documentation checks for new Python repositories.
+- Updated `config/python/instructions/python-code-generation-instructions.md` to mandate:
+  - `interrogate` dev dependency
+  - `[tool.interrogate]` configuration with minimum coverage threshold
+  - CI docstring coverage step before tests
+- Updated `config/python/instructions/enterprise-python-checklist.md` to include required docstring coverage enforcement.
+- Updated `config/python/prompts/python-system.prompt.md` to reinforce documentation enforcement in compatibility guidance.
+
+### Notes
+- This release converts documentation quality from advisory guidance to enforceable policy for future generated Python repositories.
+
 ## [0.0.8] - 2026-04-24
 
 ### Changed
