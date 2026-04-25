@@ -20,12 +20,35 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 - Do not re-invent the wheel.
 - Keep changes differential and concise.
 - Favor deterministic, reproducible outputs.
+- Always know exactly where you are in terms of codebase, repo, and directory location.
 - Ask before proceeding when requirements, target directory, branch, or version are unclear.
 - Protect privacy. Never expose secrets or log PII; mask sensitive values in logs and error messages.
 - Any assumptions made must be clearly defined and validated each time it's considered.
+- Do not delete files unless you have a backup or have a way to restore them. If needed, create a temp backup folder to save files before permanently deleting files. Give user an option to delete backup files later.
+
+## Documentation Standards
+
+- Add docstrings on public functions and classes when intent is not obvious.
+- Prefer comments that explain why a decision exists, not what the code mechanically does.
+- Keep README setup and architecture guidance current when scaffold or runtime expectations change.
+- Documentation requirements must be machine-enforced, not only instruction-based guidance.
+  For new Python repositories, require docstring coverage checks in CI (for example,
+  `interrogate` with a fail threshold) so undocumented public code fails the build.
+- For non-trivial modules, require module-level docstrings that explain purpose, critical constraints, and design tradeoffs.
+- For non-trivial functions and methods, require docstrings with purpose, args, return value, and raised errors when relevant.
+- Tests should document pass criteria in docstrings so failures are diagnosable without reverse-engineering assertion details.
+- Every new repository README must include:
+  - An ASCII architecture diagram showing components, data flow direction, transport, and protocol.
+  - A repository structure tree showing all source directories and key files with inline annotations.
 
 ## Standard Workflow
 
+0. When your are given a task, always follow this order:
+    a. Do not make assumptions and if needed, ask for more info from users. 
+    b. Research thoroughly not only for happy scenarios but also for negative scenarios
+    c. Plan based on your research that are supported by citable sources
+    d. Execute the plan
+    e. Validate your Execution to make sure it's inline with the research and plan 
 1. Identify the applicable repository guidance and language/runtime guidance.
 2. Verify target versions from repository evidence before implementation.
 3. State the chosen template, library, or architecture path when it materially affects the solution.

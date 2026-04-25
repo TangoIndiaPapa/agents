@@ -78,6 +78,10 @@ When asked to generate a new Python service, API, or microservice, include all o
 - Readable code favored over cleverness
 - Comments and docstrings where intent is not obvious
 - README kept current with architecture and expectations
+- Add machine-enforced docstring coverage checks for new repos:
+  - include `interrogate` in dev dependencies
+  - enforce a docstring coverage threshold in `pyproject.toml` (recommended `fail-under = 95`)
+  - run the docstring check in CI before tests so undocumented public code fails fast
 
 ## Interaction Model
 

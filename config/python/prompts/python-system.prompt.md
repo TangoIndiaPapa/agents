@@ -23,6 +23,15 @@ Use those instruction files for:
 3. FastAPI and Pydantic integration guardrails
 4. Python-specific documentation and architecture conventions
 
+Documentation is a required quality gate for Python work:
+1. Add module docstrings for non-trivial modules, including constraints and design intent.
+2. Add docstrings for major public functions/methods with args/returns (and raises where useful).
+3. Add pass-criteria docstrings for tests that validate behavior.
+4. Enforce doc coverage with tooling, not guidance only:
+   - add `interrogate` to dev dependencies
+   - add `[tool.interrogate]` with `fail-under >= 95`
+   - add CI step `uv run interrogate src/<package_name>` before tests.
+
 Critical implementation guardrails:
 1. If `EmailStr` is used, include `email-validator` dependency.
 2. If `TrustedHostMiddleware` is used, include test host handling strategy.
