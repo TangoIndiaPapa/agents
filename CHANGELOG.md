@@ -2,6 +2,15 @@
 
 All notable changes to this repository are documented in this file.
 
+## [0.1.0] - 2026-04-25
+
+### Added
+- Context Integrity & Memory Management: Added robust, auditable controls to prevent memory rot, context dilution, hallucination, and lost goals in long-running agentic workflows.
+- Updated assessment and plan files to enforce persistent structured memory, context window management, goal/plan traceability, automated consistency checks, audit logging, and human-in-the-loop verification for all phases.
+
+### Notes
+- This release ensures all future work is protected against context and memory issues, with clear acceptance criteria and recovery protocols.
+
 ## [0.0.9] - 2026-04-25
 
 ### Changed

@@ -1,5 +1,22 @@
 # Release Notes
 
+
+## 0.1.0 - 2026-04-25
+
+This release introduces robust, auditable context integrity and memory management controls to the agentic AI ecosystem assessment and plan.
+
+### Highlights
+- Added a dedicated section on context integrity & memory management to the assessment and plan files.
+- Enforced persistent structured memory, context window management, goal/plan traceability, automated consistency checks, audit logging, and human-in-the-loop verification for all phases.
+
+### Validation
+- Verified that both assessment and plan files now require and document context/memory controls and acceptance criteria.
+- Ensured release metadata synchronization across VERSION, CHANGELOG.md, and RELEASE_NOTES.md.
+
+### Affected Areas
+- Assessment and plan files in `tests/`
+- Root governance and release documentation
+
 ## 0.0.9 - 2026-04-25
 
 This release hardens Python repository generation quality by making documentation enforcement a required, machine-checked gate.

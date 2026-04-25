@@ -1,6 +1,6 @@
 # Agents Repository
 
-Current version: 0.0.9
+Current version: 0.1.0
 
 This repository separates agent guidance into two domains:
 - config: language/runtime-specific AGENTS.md blueprints and templates
@@ -29,11 +29,10 @@ If you need to refresh guidance later:
 	`./scripts/sync_guidance_symlinks.sh python <target-repo> [agents-root]`
 
 ## Release Notes
-- Latest release: `0.0.9` (machine-enforced Python documentation quality gate policy)
+- Latest release: `0.1.0` (context integrity & memory management controls)
 - Highlights:
-        - Added root-level policy requiring machine-enforced documentation checks for new Python repos.
-        - Updated canonical Python generation rules to require `interrogate` docstring coverage gating in CI.
-        - Updated enterprise Python checklist and Python compatibility prompt to enforce the same requirement.
+        - Added robust, auditable context integrity and memory management controls to assessment and plan files.
+        - Enforced persistent structured memory, context window management, goal/plan traceability, automated consistency checks, audit logging, and human-in-the-loop verification for all phases.
 - Published release notes: [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - Latest changelog: [CHANGELOG.md](CHANGELOG.md)
 - Version file: [VERSION](VERSION)
