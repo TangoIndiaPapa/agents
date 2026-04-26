@@ -36,8 +36,8 @@ This release hardens Python repository generation quality by making documentatio
 
 ### Affected Areas
 - root governance policy in `AGENTS.md`
-- Python generation guidance in `config/python/instructions/`
-- Python compatibility prompt in `config/python/prompts/`
+- Python generation guidance in `docs/config/python/instructions/`
+- Python compatibility prompt in `docs/config/python/prompts/`
 
 ## 0.0.8 - 2026-04-24
 
@@ -45,7 +45,7 @@ This release simplifies the root agent policy and moves Python-specific guidance
 
 ### Highlights
 - Reworked `AGENTS.md` into a concise, language-neutral root policy.
-- Moved Python-specific architecture and documentation guidance into `config/python/instructions/python-code-generation-instructions.md`.
+- Moved Python-specific architecture and documentation guidance into `docs/config/python/instructions/python-code-generation-instructions.md`.
 - Updated the Python compatibility prompt to explicitly direct Python-only guidance away from the root policy.
 - Added `CLAUDE.md` as a compatibility import that references `AGENTS.md`.
 
@@ -55,7 +55,7 @@ This release simplifies the root agent policy and moves Python-specific guidance
 
 ### Affected Areas
 - root repository agent policy in `AGENTS.md`
-- Python instruction and prompt guidance under `config/python/`
+- Python instruction and prompt guidance under `docs/config/python/`
 - compatibility entry point in `CLAUDE.md`
 
 ## 0.0.7 - 2026-04-24
@@ -102,6 +102,7 @@ This release upgrades the repository from a guidance-first bootstrap to a reusab
 - root repo documentation and release metadata
 - Python onboarding workflow
 - production service generation path under `scripts/`
+<<<<<<< HEAD
 =======
 ## v0.1.1
 ### Highlights
@@ -109,3 +110,10 @@ This release upgrades the repository from a guidance-first bootstrap to a reusab
 - Added comprehensive unit tests for logging functionality.
 - Updated README.md with usage examples for LoggingMiddleware.
 >>>>>>> 5333cd9 (Initialize repository with LoggingMiddleware, tests, documentation, changelog, and release notes)
+=======
+
+### Release Notes
+
+#### Changes
+- The `config` directory has been relocated to `docs/config` to consolidate all documentation-related files.
+>>>>>>> 320e37e (Relocate config directory to docs/config and update documentation)

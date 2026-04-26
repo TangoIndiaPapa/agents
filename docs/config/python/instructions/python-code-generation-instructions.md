@@ -88,6 +88,13 @@ Canonical Python source mirrored to `.github/instructions/python-code-generation
 - Add a CI workflow step that runs `uv run interrogate src/<package_name>` before tests.
 - Do not mark work complete until local `interrogate` output passes the configured threshold
   and the CI workflow contains the docstring gate.
+- Configure pytest to treat warnings as errors. In pyproject.toml [tool.pytest.ini_options], set filterwarnings = ["error::DeprecationWarning", "error::PendingDeprecationWarning"]. Use targeted ignore entries with a code comment citing the upstream issue when a third-party deprecation cannot yet be resolved.
+- Run application entry points with python -W error::DeprecationWarning in CI smoke checks where practical.
+- Before using an API new to the codebase, verify it is not deprecated at the project's pinned version. Cite the source (release notes, deprecation table, or @deprecated decorator location) in the PR description.
+- Do not mark work complete while the test suite emits DeprecationWarning under the error filter.
+
+
+
 
 ## Error Handling
 

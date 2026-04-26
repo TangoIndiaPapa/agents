@@ -95,6 +95,13 @@ When asked to generate a new Python service, API, or microservice, include all o
 - `slowapi` module-level settings can bypass test overrides; use factory patterns
 - `lru_cache` on settings can block test override propagation; pass settings through args or app state
 - Pin `pytest-asyncio` to `>=0.24,<1.0` with `asyncio_mode = "auto"`
+- datetime.utcnow() and datetime.utcfromtimestamp() are deprecated since Python 3.12; use timezone-aware datetime.now(UTC) and datetime.fromtimestamp(ts, UTC) instead.
+- pkg_resources from setuptools is deprecated; use importlib.metadata (stdlib) for entry points and distribution metadata.
+- asyncio.get_event_loop() is deprecated when called without a running loop; use asyncio.get_running_loop() inside coroutines or asyncio.new_event_loop() for explicit creation.
+- Pydantic v1 validators (@validator) are deprecated in v2 codebases; use @field_validator and @model_validator.
+- setup.py direct invocation (python setup.py install/develop) is deprecated; use pip install and pyproject.toml-driven builds.
+- email.utils.parsedate() is deprecated; use email.utils.parsedate_to_datetime().
+- Avoid using deprecated methods like `json` in Pydantic models. Use `model_dump_json` instead to ensure forward compatibility with Pydantic V3.0.
 
 ## Framework Integration Guardrails
 

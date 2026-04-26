@@ -11,8 +11,8 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 
 - This file defines repository-wide agent behavior.
 - Keep this file language-neutral.
-- Put language or framework rules under `config/<language>/instructions/` and `config/<language>/prompts/`.
-- When a task is language-specific, load the matching guidance before implementation.
+- Put language or framework rules under `docs/config/<language>/instructions/` and `docs/config/<language>/prompts/`.
+- When a task is language-specific, load the matching guidance from `docs/config/<language>/` before implementation.
 
 ## Core Principles
 
@@ -75,6 +75,9 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 - Match implementation to the documented version used by the target project.
 - Do not mix examples or APIs from incompatible versions.
 - Apply best practices appropriate to the verified version, not whatever is newest.
+- Do not use APIs marked deprecated by the upstream library at the verified version. Treat any DeprecationWarning observed during local runs or tests as a finding requiring resolution, not an acceptable warning to suppress.
+
+
 
 ## Quality Expectations
 

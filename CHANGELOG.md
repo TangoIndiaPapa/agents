@@ -3,6 +3,10 @@
 <<<<<<< HEAD
 All notable changes to this repository are documented in this file.
 
+## [Unreleased]
+### Changed
+- Moved the `config` directory to `docs/config` to improve documentation organization.
+
 ## [0.1.0] - 2026-04-25
 
 ### Added
@@ -16,12 +20,12 @@ All notable changes to this repository are documented in this file.
 
 ### Changed
 - Updated `AGENTS.md` to require machine-enforced documentation checks for new Python repositories.
-- Updated `config/python/instructions/python-code-generation-instructions.md` to mandate:
+- Updated `docs/config/python/instructions/python-code-generation-instructions.md` to mandate:
   - `interrogate` dev dependency
   - `[tool.interrogate]` configuration with minimum coverage threshold
   - CI docstring coverage step before tests
-- Updated `config/python/instructions/enterprise-python-checklist.md` to include required docstring coverage enforcement.
-- Updated `config/python/prompts/python-system.prompt.md` to reinforce documentation enforcement in compatibility guidance.
+- Updated `docs/config/python/instructions/enterprise-python-checklist.md` to include required docstring coverage enforcement.
+- Updated `docs/config/python/prompts/python-system.prompt.md` to reinforce documentation enforcement in compatibility guidance.
 
 ### Notes
 - This release converts documentation quality from advisory guidance to enforceable policy for future generated Python repositories.
@@ -30,8 +34,8 @@ All notable changes to this repository are documented in this file.
 
 ### Changed
 - Reworked `AGENTS.md` from a Python-heavy system prompt into a concise, language-neutral root policy.
-- Moved Python-specific reference architecture, architecture principles, and documentation standards into `config/python/instructions/python-code-generation-instructions.md`.
-- Updated `config/python/prompts/python-system.prompt.md` to make the root-vs-language guidance split explicit.
+- Moved Python-specific reference architecture, architecture principles, and documentation standards into `docs/config/python/instructions/python-code-generation-instructions.md`.
+- Updated `docs/config/python/prompts/python-system.prompt.md` to make the root-vs-language guidance split explicit.
 
 ### Added
 - Added `CLAUDE.md` as a compatibility import that points at `AGENTS.md`.
@@ -83,9 +87,9 @@ All notable changes to this repository are documented in this file.
   - fenced setup commands in generated README files
 
 ### Updated Files
-- `config/python/instructions/enterprise-python-checklist.md`
-- `config/python/instructions/python-code-generation-instructions.md`
-- `config/python/prompts/python-system.prompt.md`
+- `docs/config/python/instructions/enterprise-python-checklist.md`
+- `docs/config/python/instructions/python-code-generation-instructions.md`
+- `docs/config/python/prompts/python-system.prompt.md`
 - `.github/instructions/enterprise-python-checklist.instructions.md`
 - `.github/instructions/python-code-generation.instructions.md`
 - `.github/prompts/python-system.prompt.md`
@@ -103,9 +107,9 @@ All notable changes to this repository are documented in this file.
 - Updated prompt compatibility guidance with concrete guardrail reminders.
 
 ### Updated Files
-- `config/python/instructions/enterprise-python-checklist.md`
-- `config/python/instructions/python-code-generation-instructions.md`
-- `config/python/prompts/python-system.prompt.md`
+- `docs/config/python/instructions/enterprise-python-checklist.md`
+- `docs/config/python/instructions/python-code-generation-instructions.md`
+- `docs/config/python/prompts/python-system.prompt.md`
 - `.github/instructions/enterprise-python-checklist.instructions.md`
 - `.github/instructions/python-code-generation.instructions.md`
 - `.github/prompts/python-system.prompt.md`
@@ -122,7 +126,7 @@ All notable changes to this repository are documented in this file.
 - Updated `scripts/sync_guidance_symlinks.sh` to act as a compatibility wrapper using symlink mode.
 - Updated onboarding documentation to make copy-at-creation the default workflow:
   - `README.md`
-  - `config/python/README.md`
+  - `docs/config/python/README.md`
 
 ### Notes
 - Copy mode is now the primary recommendation for team portability.
@@ -135,18 +139,18 @@ All notable changes to this repository are documented in this file.
   - `.github/instructions/enterprise-python-checklist.instructions.md`
   - `.github/instructions/python-code-generation.instructions.md`
   - `.github/prompts/python-system.prompt.md`
-- Added canonical Python guidance sources under `config/python`:
-  - `config/python/instructions/enterprise-python-checklist.md`
-  - `config/python/instructions/python-code-generation-instructions.md`
-  - `config/python/prompts/python-system.prompt.md`
+- Added canonical Python guidance sources under `docs/config/python`:
+  - `docs/config/python/instructions/enterprise-python-checklist.md`
+  - `docs/config/python/instructions/python-code-generation-instructions.md`
+  - `docs/config/python/prompts/python-system.prompt.md`
 - Added first-time Python onboarding guide:
-  - `config/python/README.md`
+  - `docs/config/python/README.md`
 - Added symlink sync script for guidance distribution:
   - `scripts/sync_python_guidance_symlinks.sh`
 
 ### Changed
 - Updated root `README.md` with Python onboarding pointer and release metadata references.
-- Updated Python prompt references to canonical `config/python/instructions` paths.
+- Updated Python prompt references to canonical `docs/config/python/instructions` paths.
 
 ### Notes
 - Current distribution model supports symlink-based synchronization for downstream repositories.
