@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python3 scripts/hooks/validate_agent_state_update.py",
+        "cwd": ".",
+        "timeout": 15,
+        "env": {
+          "AGENT_STATE_HOOK_MODE": "start"
+        }
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 scripts/hooks/validate_agent_state_update.py",
+        "cwd": ".",
+        "timeout": 15,
+        "env": {
+          "AGENT_STATE_HOOK_MODE": "stop"
+        }
+      }
+    ]
+  }
+}
