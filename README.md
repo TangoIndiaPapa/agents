@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Agents Repository
 
 Current version: 0.1.0
@@ -66,3 +67,24 @@ Preferred distribution order:
 - Do not place language-specific files under skill
 - Skill folder name must match SKILL.md frontmatter name
 - Keep skills one level deep under skill/
+=======
+## LoggingMiddleware
+
+The `LoggingMiddleware` class provides structured logging for the harness kernel. It supports logging at various levels:
+- Info
+- Warning
+- Error
+- Debug
+
+### Usage
+
+```python
+from agents_harness.logging_middleware import LoggingMiddleware
+
+logger = LoggingMiddleware()
+logger.log_info("This is an info message.")
+logger.log_warning("This is a warning message.")
+logger.log_error("This is an error message.")
+logger.log_debug("This is a debug message.")
+```
+>>>>>>> 5333cd9 (Initialize repository with LoggingMiddleware, tests, documentation, changelog, and release notes)

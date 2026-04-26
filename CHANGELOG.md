@@ -1,5 +1,6 @@
 # Changelog
 
+<<<<<<< HEAD
 All notable changes to this repository are documented in this file.
 
 ## [0.1.0] - 2026-04-25
@@ -158,3 +159,10 @@ All notable changes to this repository are documented in this file.
   - root governance files (`AGENTS.md`, policy/warning docs)
   - language config directories (`config/python`, `config/java-spring`, `config/dotnet-minimal`, `config/nextjs`, `config/rust-axum`)
   - reusable skill directory structure under `skill/`
+=======
+## [v0.1.1] - 2026-04-26
+### Added
+- LoggingMiddleware implementation for structured logging.
+- Unit tests for LoggingMiddleware.
+- Documentation for LoggingMiddleware in README.md.
+>>>>>>> 5333cd9 (Initialize repository with LoggingMiddleware, tests, documentation, changelog, and release notes)

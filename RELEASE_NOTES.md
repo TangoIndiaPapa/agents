@@ -1,5 +1,6 @@
 # Release Notes
 
+<<<<<<< HEAD
 
 ## 0.1.0 - 2026-04-25
 
@@ -101,3 +102,10 @@ This release upgrades the repository from a guidance-first bootstrap to a reusab
 - root repo documentation and release metadata
 - Python onboarding workflow
 - production service generation path under `scripts/`
+=======
+## v0.1.1
+### Highlights
+- Introduced `LoggingMiddleware` for structured logging.
+- Added comprehensive unit tests for logging functionality.
+- Updated README.md with usage examples for LoggingMiddleware.
+>>>>>>> 5333cd9 (Initialize repository with LoggingMiddleware, tests, documentation, changelog, and release notes)
