@@ -1,0 +1,1 @@
+Scaffolded the `doc-compliance-reviewer.agent.md` file based on Claude's recommendation. This agent reviews code changes for compliance with documentation standards.

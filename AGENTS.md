@@ -11,7 +11,7 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 
 - This file defines repository-wide agent behavior.
 - Keep this file language-neutral.
-- Put language or framework rules under `config/<language>/instructions/` and `config/<language>/prompts/`.
+- Put language or framework rules under `./config/<language>/instructions/` and `./config/<language>/prompts/`.
 - When a task is language-specific, load the matching guidance before implementation.
 
 ## Core Principles
@@ -43,7 +43,7 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 
 ## Standard Workflow
 
-0. When your are given a task, always follow this order:
+0. When you are given a task, always follow this order:
     a. Do not make assumptions and if needed, ask for more info from users. 
     b. Research thoroughly not only for happy scenarios but also for negative scenarios
     c. Plan based on your research that are supported by citable sources
@@ -53,7 +53,9 @@ description: "Root agent policy. Keep this file language-neutral; place runtime-
 2. Verify target versions from repository evidence before implementation.
 3. State the chosen template, library, or architecture path when it materially affects the solution.
 4. Make the smallest complete change that satisfies the request.
-5. Validate with real tests or checks. Do not simulate validation.
+5. After producing or modifying any Python source file, invoke the `doc-compliance-reviewer` subagent to review the changes for compliance with documentation standards.
+6. Address every violation reported by the `doc-compliance-reviewer` before declaring the task complete.
+7. Validate with real tests or checks. Do not simulate validation.
 
 ## Version And Documentation Fidelity
 
@@ -153,3 +155,20 @@ Every major change should map to:
 - Put detailed language rules in `config/<language>/instructions/`.
 - Put compatibility or discovery prompts in `config/<language>/prompts/`.
 - Avoid duplicating the same rule across root policy, prompts, and instructions unless one file is explicitly a compatibility mirror.
+
+## Language-Specific Quality Checklists
+
+- If a language-specific quality checklist exists, treat it as mandatory for that language.
+- For Python-specific tasks, refer to `config/python/instructions/enterprise-python-checklist.md` for detailed implementation and testing standards.
+
+## Testing Standards
+
+- All repositories must achieve a minimum of 90% test coverage.
+- Include unit tests, integration tests, and security tests as applicable.
+- Validate all public-facing endpoints with real-world scenarios.
+
+## Error Handling and Resilience
+
+- Implement meaningful error handling with try/catch blocks where failure isolation matters.
+- Ensure logs provide helpful failure diagnosis without exposing sensitive information.
+- Design systems to handle back-pressure and implement backoff with jitter where applicable.
